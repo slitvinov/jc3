@@ -1,0 +1,11 @@
+load("scifac");
+assume(s > 0);
+g: exp(-('z - 'm)^2/'s^2) / sqrt(%pi)/'s;
+integrate(g, 'z, -inf, inf);
+
+factor(diff(log(g), 'm));
+grind(%);
+
+gcfac(factor(diff(log(g), s)));
+grind(%);
+

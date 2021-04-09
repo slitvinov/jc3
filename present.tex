@@ -1,0 +1,59 @@
+\catcode`\@=11
+
+
+\parindent0pt		% Indentation probably not good for presentation
+\parskip0pt		% Neither is automatic extra space between paragraphs
+\footline={}
+
+\font\titlefont=cmss10 at 20pt
+\font\normalfont=cmss12
+\font\slidetitlefont=cmssbx10
+\font\it=cmti12
+%
+\baselineskip=15pt
+%			%% Below fonts for math are adapted to 12pt size
+\font\tfont=cmr12
+\font\sfont=cmr9
+\font\ssfont=cmr7
+\font\tifont=cmmi12
+\font\sifont=cmmi9
+\font\ssifont=cmmi7
+\font\tsyfont=cmsy10 at 12pt
+\font\ssyfont=cmsy9
+\font\sssyfont=cmsy7
+\font\texfont=cmex10 at 12 pt
+\font\sexfont=cmex9
+\font\ssexfont=cmex7
+%
+\textfont0=\tfont
+\scriptfont0=\sfont
+\scriptscriptfont0=\ssfont
+\textfont1=\tifont
+\scriptfont1=\sifont
+\scriptscriptfont1=\ssifont
+\textfont2=\tsyfont
+\scriptfont2=\ssyfont
+\scriptscriptfont2=\sssyfont
+\textfont3=\texfont
+\scriptfont3=\sexfont
+\scriptscriptfont3=\ssexfont
+%
+
+\def\NewSlide{\vfill\eject}
+
+\def\SlideTitle#1{
+\global\headline{\centerline{\slidetitlefont #1}}%
+\hrule height 1pt depth 0pt width 100pt \relax
+}
+
+\def\image[#1]#2{%
+\pdfximage #1 {#2}\pdfrefximage\pdflastximage}
+
+\pdfpagewidth=160mm
+\pdfpageheight=90mm
+\vsize=67mm
+\hsize=134mm
+\hoffset=-20.4mm
+\voffset=-12.4mm
+
+\catcode`\@=12

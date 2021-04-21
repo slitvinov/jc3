@@ -6,6 +6,7 @@ GSL_FLAGS = `gsl-config --libs --cflags`
 0 = \
 lqr\
 lqr_random\
+lqr_reinforce\
 random\
 reinforce\
 

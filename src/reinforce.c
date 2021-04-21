@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <math.h>
 #include <gsl/gsl_rng.h>
 #include <gsl/gsl_randist.h>
 
@@ -9,23 +10,24 @@ static double R(double);
 
 int main() {
   const gsl_rng_type * T;
-  double t[2];
+  double alpha;
   double d0[2];
   double d[2];
+  double t[2];
+  double aux;
   double z;
-  double alpha;
-  int i;
+  int k;
   int j;
   int n;
+
   gsl_rng_env_setup();
   T = gsl_rng_default;
   r = gsl_rng_alloc (T);
-  z = 1.0;
-  t[0] = 0.9;
-  t[1] = 0.1;
+  t[0] = 0.0;
+  t[1] = 1.0;
   alpha = 1e-5;
   n = 100;
-  for (i = 0; i < 1000000; i++) {
+  for (k = 0; k < 1000000; k++) {
     z = p(t);
     d[0] = 0;
     d[1] = 0;
@@ -34,9 +36,10 @@ int main() {
       d[0] += d0[0];
       d[1] += d0[1];
     }
-    t[0] += alpha * R(z) * d[0]/n;
-    t[1] += alpha * R(z) * d[1]/n;
-    if (i % 10000 == 0)
+    aux = alpha * R(z) / n;
+    t[0] += aux * d[0];
+    t[1] += aux * d[1];
+    if (k % 10000 == 0)
       fprintf(stderr, "%g %g %g\n", t[0], t[1], R(z));
   }
   gsl_rng_free(r);
@@ -57,9 +60,9 @@ dlog(const double *t, double z, double *d)
 {
   double m;
   double s;
+
   m = t[0];
   s = t[1];
-
   d[0] = (2*(z-m))/(s*s);
   d[1] = (2*(z*z)-(4*m*z+(s*s))+2*(m*m))/(s*s*s);
 }

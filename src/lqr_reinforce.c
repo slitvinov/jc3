@@ -15,6 +15,7 @@ static gsl_rng *r;
 
 static double reward(void);
 static double action(void);
+static void sample(void);
 
 static double
 episod(void)

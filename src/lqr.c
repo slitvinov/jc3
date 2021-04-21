@@ -22,13 +22,13 @@ main(int agrc, char **argv)
     L = 5;
     s = 1.0;
     R = 0;
-    for (k = 0; ; k++) {
+    for (k = 0;; k++) {
         F = action();
         r = reward();
         R += r;
         printf("%12.6g %12.6g %12.6g\n", x, v, R);
         if (k == L - 1)
-          break;
+            break;
         x += v;
         v += F;
     }
@@ -43,27 +43,28 @@ reward(void)
 static double
 action0(void)
 {
-  return -0.196078431372549;
+    return -0.196078431372549;
 }
 
 static double
 action1(void)
 {
-  double f[] = {-0.4705882352941176,
-                0.08823529411764705,
-                0.1176470588235294,
-                0};
-  return f[k];
+    double f[] = { -0.4705882352941176,
+        0.08823529411764705,
+        0.1176470588235294,
+        0
+    };
+    return f[k];
 }
 
 static double
 action2(void)
 {
-  return -0.2272025184027502 * x;
+    return -0.2272025184027502 * x;
 }
 
 static double
 action(void)
 {
-  return -0.2534710463934982 * x + 0.04087719298245614;
+    return -0.2534710463934982 * x + 0.04087719298245614;
 }

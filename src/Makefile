@@ -5,6 +5,7 @@ CFLAGS = -Ofast -g
 GSL_FLAGS = `gsl-config --libs --cflags`
 0 = \
 lqr\
+lqr_random\
 random\
 reinforce\
 

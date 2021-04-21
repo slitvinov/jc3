@@ -4,8 +4,9 @@
 CFLAGS = -Ofast -g
 GSL_FLAGS = `gsl-config --libs --cflags`
 0 = \
-reinforce\
+lqr\
 random\
+reinforce\
 
 all: $0
 .c:; $(CC) $< $(CFLAGS) $(LDFLAGS) $(GSL_FLAGS) -o $@

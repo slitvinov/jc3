@@ -3,7 +3,7 @@ v: 0;
 L: 5;
 R: 0;
 for i thru L do (
-  F: f(i),
+  F: al * x + be * v + ga,
   r: x * x + s * F * F,
   R: R + r,
   x: x + v,

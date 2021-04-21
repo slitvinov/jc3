@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <math.h>
 
-static double f0;
+static double s;
 static double x;
 static double v;
 static double F;
@@ -10,23 +10,25 @@ static double reward(void);
 static double action(void);
 
 int
-main()
+main(int agrc, char **argv)
 {
-    int i;
+    int k;
     int L;
     double r;
     double R;
 
     x = 1;
     v = 0;
-    L = 100;
-    f0 = 1.0;
-
+    L = 5;
+    s = 1.0;
     R = 0;
-    for (i = 0; i < L; i++) {
+    for (k = 0; ; k++) {
         F = action();
         r = reward();
         R += r;
+        printf("%12.6g %12.6g\n", x, R);
+        if (k == L - 1)
+          break;
         x += v;
         v += F;
     }
@@ -35,11 +37,11 @@ main()
 static double
 reward(void)
 {
-    return x * x + f0 * F;
+    return x * x + s * F * F;
 }
 
 static double
 action(void)
 {
-    return -1;
+  return -0.196078431372549;
 }

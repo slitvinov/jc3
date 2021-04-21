@@ -49,9 +49,9 @@ main(int agrc, char **argv)
     L = 5;
     s = 1.0;
     t[0] = t[1] = 0;
-    sigma = 1e-4;
+    sigma = 1e-3;
     alpha = 1e-2;
-    for (i = 0; i < 100; i++) {
+    for (i = 0; i < 1000; i++) {
         for (c = 0; c < 2; c++) {
             memcpy(t, t0, sizeof t0);
             t[c] = t0[c] + sigma;

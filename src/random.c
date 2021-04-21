@@ -17,7 +17,7 @@ int main() {
     d = (R(t + sigma) - R(t - sigma)) / (2 * sigma);
     t += alpha * d;
     if (k % 10 == 0)
-      fprintf(stderr, "%g\n", t);
+      fprintf(stderr, "%d %g\n", k, t);
   }
 }
 

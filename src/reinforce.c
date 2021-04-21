@@ -40,7 +40,7 @@ int main() {
     t[0] += aux * d[0];
     t[1] += aux * d[1];
     if (k % 100000 == 0)
-      fprintf(stderr, "%g %g\n", t[0], t[1]);
+      fprintf(stderr, "%d %g %g\n", k, t[0], t[1]);
   }
   gsl_rng_free(r);
 }

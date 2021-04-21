@@ -26,7 +26,7 @@ int main() {
   t[0] = 0.0;
   t[1] = 1.0;
   alpha = 1e-5;
-  n = 100;
+  n = 1;
   for (k = 0; k < 1000000; k++) {
     z = p(t);
     d[0] = 0;
@@ -39,8 +39,8 @@ int main() {
     aux = alpha * R(z) / n;
     t[0] += aux * d[0];
     t[1] += aux * d[1];
-    if (k % 10000 == 0)
-      fprintf(stderr, "%g %g %g\n", t[0], t[1], R(z));
+    if (k % 100000 == 0)
+      fprintf(stderr, "%g %g\n", t[0], t[1]);
   }
   gsl_rng_free(r);
 }

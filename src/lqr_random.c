@@ -27,6 +27,7 @@ episod(void)
         F = action();
         r = reward();
         R += r;
+        printf("%12.6g %12.6g %12.6g\n", x, v, R);
         if (k == L - 1)
             break;
         x += v;
@@ -53,6 +54,7 @@ main(int agrc, char **argv)
     sigma = 1e-3;
     alpha = 1e-2;
     for (i = 0; i < 300; i++) {
+        printf("episode %d\n", i + 1);
         for (c = 0; c < dim; c++) {
             memcpy(t, t0, sizeof t0);
             t[c] = t0[c] + sigma;

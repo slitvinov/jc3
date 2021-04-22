@@ -59,11 +59,11 @@ main(int agrc, char **argv)
     r = gsl_rng_alloc(T);    
     L = 5;
     s = 1.0;
-    n = 1000;
-    z[0] = -0.1; z[1] = 0.001;
-    z[2] = 0; z[3] = 0.001;
-    alpha = 1e-7;
-    for (i = 0; i < 100000; i++) {
+    n = 1;
+    z[0] = 0; z[1] = 0.0001;
+    z[2] = 0; z[3] = 0.0001;
+    alpha = 1e-9;
+    for (i = 0; i < 1000000; i++) {
       for (c = 0; c < 2 * dim; c++)
         g[c] = 0;
       for (j = 0; j < n; j++) {
@@ -73,7 +73,7 @@ main(int agrc, char **argv)
         dlog(t, z, g);
       }
       for (c = 0; c < 2 * dim; c++)
-        z[c] -= aux * g[c] / n;
+        z[c] += aux * g[c] / n;
       if (i % 10000 == 0)        
         printf("%12.6g %12.6g %12.6g\n", R, z[0], z[2]);
     }
